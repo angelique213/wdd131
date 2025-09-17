@@ -49,8 +49,8 @@
     margin-bottom: 10px;
 }
 .footer-logo {
-    position: fixed;
-    bottom: 230px; 
+    position: absolute;
+    bottom: 400px; 
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
