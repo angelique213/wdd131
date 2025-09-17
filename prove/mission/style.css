@@ -41,7 +41,6 @@
     padding-left: 20px; 
     margin: 0;
     font-weight: normal;
-    padding-left: 30px;
 }
 
 .points li {
@@ -50,7 +49,7 @@
 }
 .footer-logo {
     position: absolute;
-    bottom: 280px; 
+    bottom: 250px; 
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
