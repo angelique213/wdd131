@@ -1,0 +1,62 @@
+.main-title {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+
+.sub-title {
+    text-align: center;
+    color: #006EB6;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: lighter;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.divider {
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 410px;
+    border: none;
+    border-top: .5px solid grey;
+}
+
+.mission-content {
+    width: 35%;        
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+.intro {
+    text-align: justify;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.points {
+    padding-left: 20px; 
+    margin: 0;
+    font-weight: normal;
+    padding-left: 30px;
+}
+
+.points li {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.footer-logo {
+    position: fixed;
+    bottom: 230px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .footer-logo .logo {
+    width: 80px;  
+    height: auto;  
+  }
