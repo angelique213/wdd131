@@ -62,6 +62,7 @@ body {
 .points li {
     text-align: left;
     margin-bottom: 15px;
+    margin-left: 25px;
 }
 
 .footer-logo {
