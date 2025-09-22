@@ -9,6 +9,18 @@ body {
     line-height: 1.5;
 }
 
+.theme-selector-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.theme-selector-wrapper select {
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
 .border {
     border: 1px solid #ccc;
     width: 70%;
@@ -73,4 +85,23 @@ body {
 .footer-logo .logo {
     width: 150px;
     height: auto;
+}
+
+.dark {
+    background-color: #333;
+    color: #fff;         
+}
+
+.dark .border {
+    background-color: #333;
+    border-color: #aaa;
+}
+
+.dark .sub-title {
+    color: #aad4ff; 
+}
+
+.dark p,
+.dark li {
+    color: #fff;
 }
