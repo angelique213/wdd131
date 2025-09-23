@@ -102,3 +102,7 @@ body {
 .dark li {
     color: #fff;
 }
+
+.dark .divider {
+    border-top: 1px solid white;
+}
