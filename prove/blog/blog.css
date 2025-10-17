@@ -1,0 +1,227 @@
+/* -------------------------------
+   Theme Colors & Variables
+--------------------------------*/
+:root {
+    --gold: #EFC69B;
+    --red: #AF1B3F;
+    --dark: #473144;
+    --filters-min-height: 320px;
+  }
+  
+  /* -------------------------------
+     Reset & Base
+  --------------------------------*/
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* -------------------------------
+     Screen Reader Helper
+  --------------------------------*/
+  .sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    white-space: nowrap;
+  }
+  
+  /* -------------------------------
+     Skip Link
+  --------------------------------*/
+  .skiptocontent a {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  
+  .skiptocontent a:focus {
+    left: 0;
+    clip: auto;
+    clip-path: none;
+    padding: 0.5rem 0.75rem;
+    background: var(--gold);
+    color: #000;
+    border-radius: 0.25rem;
+    z-index: 1000;
+  }
+  
+  /* -------------------------------
+     Header & Title
+  --------------------------------*/
+  header {
+    text-align: center;
+    padding: 1rem 1rem 0.25rem;
+  }
+  
+  header h1 {
+    font-family: 'Lora', serif;
+    color: var(--dark);
+    margin: 0.25rem 0 0.75rem;
+    font-size: clamp(2rem, 3.5vw, 2.4rem);
+  }
+  
+  /* -------------------------------
+     Navigation Grid
+  --------------------------------*/
+  .main-nav {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0.75rem 0;
+    max-width: 980px;
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    gap: 24px;
+    justify-content: end;
+    justify-items: end;
+  }
+  
+  .main-nav a {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 1.05rem;
+  }
+  
+  .main-nav a:hover {
+    color: var(--red);
+    text-decoration: underline;
+  }
+  
+  /* -------------------------------
+     Page Layout (Articles | Filters)
+  --------------------------------*/
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 900px) {
+    main {
+      grid-template-columns: 2.4fr 1fr;
+      align-items: start;
+    }
+  }
+  
+  /* -------------------------------
+     Article Layout (Meta | Body)
+  --------------------------------*/
+  .post {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 0 20px;
+    border-bottom: 1px solid var(--gold);
+  }
+  
+  @media (min-width: 760px) {
+    .post {
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+    }
+  }
+  
+  /* -------------------------------
+     Book Meta
+  --------------------------------*/
+  .book-meta {
+    text-align: right;
+    color: #666;
+    padding-right: 14px;
+    border-right: 1px solid var(--gold);
+  }
+  
+  .book-meta p {
+    margin: 0.25rem 0;
+  }
+  
+  .book-meta .date {
+    font-style: italic;
+    color: #444;
+  }
+  
+  /* -------------------------------
+     Book Body
+  --------------------------------*/
+  .book-body h2 {
+    margin: 0 0 0.5rem;
+    color: var(--red);
+    font-family: 'Lora', serif;
+    font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  }
+  
+  .book-figure {
+    margin: 0.25rem 0 0.75rem;
+    text-align: center;
+  }
+  
+  .book-figure img {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  
+  /* -------------------------------
+     Excerpt Links
+  --------------------------------*/
+  .excerpt a {
+    color: var(--red);
+  }
+  
+  .excerpt a:hover {
+    text-decoration: underline;
+  }
+  
+  /* -------------------------------
+     Filters Box
+  --------------------------------*/
+  .filters {
+    border: 1px solid var(--gold);
+    padding: 16px;
+    background: #fffaf6;
+    min-height: var(--filters-min-height);
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  .filters-note {
+    margin: 0;
+    font-style: italic;
+    color: #333;
+  }
+  
+  /* -------------------------------
+     Footer
+  --------------------------------*/
+  footer {
+    border-top: 2px solid var(--gold);
+    text-align: center;
+    padding: 12px 16px;
+    color: #444;
+    font-size: 0.95rem;
+  }
+  
