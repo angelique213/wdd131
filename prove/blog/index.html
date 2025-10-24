@@ -6,15 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Kids Read for Fun — book reviews for children and teens." />
   <meta name="author" content="Angelique Legaspi" />
-
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="blog.css" />
   <script defer src="blog.js"></script>
 </head>
 
 <body>
-
   <div class="skiptocontent">
     <a href="#maincontent">Skip to main content</a>
   </div>
@@ -31,51 +28,14 @@
   </header>
 
   <main id="maincontent">
-  
-    <section class="articles" aria-label="Latest Book Review">
-      <article class="post">
-        <div class="book-meta">
-          <p class="date">
-            <time datetime="2022-07-05" aria-label="Published July 5, 2022">July 5, 2022</time>
-          </p>
-          <p class="age">10–14</p>
-          <p class="genre">Fantasy</p>
-          <p class="rating" aria-label="Rating: 4 out of 5">
-            ⭐⭐⭐⭐<span class="sr-only"> out of 5</span>
-          </p>
-        </div>
-
-        <div class="book-body">
-          <h2>Septimus Heap Book One: <em>Magyk</em></h2>
-          <figure class="book-figure">
-            <img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg"
-                 alt="Cover of Septimus Heap Book One: Magyk"
-                 width="260" height="360" loading="lazy">
-            <figcaption class="sr-only">Book cover</figcaption>
-          </figure>
-
-          <p class="excerpt">
-            If you enjoy stories about seventh sons of seventh sons and magyk this is the book for you.
-            <a href="#" aria-label="Read more about Magyk">Read More...</a>
-          </p>
-        </div>
-      </article>
-    </section>
-
-   
-    <aside class="filters" aria-label="Filters placeholder">
-      <p class="filters-note"><em>Filter form will go here</em></p>
-    </aside>
+    <section class="articles" aria-label="Latest Book Reviews"></section>
   </main>
+
+  
+  <div class="author-line" aria-label="Author credit">Angelique Legaspi</div>
 
   <footer role="contentinfo">
     <p>&copy; <span id="year"></span> Kids Read for Fun</p>
   </footer>
-
-
-  <script>
-    const y = document.getElementById('year');
-    if (y) y.textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
