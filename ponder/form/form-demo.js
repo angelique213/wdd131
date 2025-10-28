@@ -8,19 +8,23 @@ function validateForm(event) {
     const errors = [];
     let isValid = true;
   
-    // add validations
-    if (theForm.paymentMethod.value === "creditCard") {
-      // only allow this test number
-      if (theForm.creditCardNumber.value !== "1234123412341234") {
-        isValid = false;
-        errors.push("Invalid Credit Card Number");
-      }
-    }
-  
-    if (theForm.fullName.value !== "Bob") {
-      isValid = false;
-      errors.push("Your name is not Bob");
-    }
+// add validations
+if (theForm.paymentMethod.value === "creditCard") {
+  const cardNumber = theForm.creditCardNumber.value.trim();
+  // check that it has exactly 16 digits
+  if (!/^\d{16}$/.test(cardNumber)) {
+    isValid = false;
+    errors.push("Credit card number must be 16 digits");
+  }
+}
+
+// check that the name field is not empty
+const name = theForm.fullName.value.trim();
+if (name === "") {
+  isValid = false;
+  errors.push("Please enter your full name");
+}
+
   
     // if invalid, stop and show errors
     if (!isValid) {
