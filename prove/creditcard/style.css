@@ -140,7 +140,6 @@ input:focus { outline: 2px solid #000; outline-offset: 1px; }
 .cvc-group label {
   margin-bottom: 3px;
   text-align: right;
-  margin-left: 5px;
 }
 
 .cvc-group input {
@@ -170,5 +169,3 @@ input:focus { outline: 2px solid #000; outline-offset: 1px; }
   margin-top: 28px;
 }
 .submit-btn:hover { background: #ccc; }
-
-
