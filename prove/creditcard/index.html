@@ -22,19 +22,18 @@
       />
 
       <div class="card-number-group">
-        <label for="cardNumber">Card Number</label>
         <input
-          type="text"
-          id="cardNumber"
-          name="cardNumber"
-          placeholder="1234 5678 9101 1020"
-          inputmode="numeric"
-          minlength="13"
-          maxlength="19"
-          pattern="(?:\d{4} ?){3}\d{4}|(?:\d{4} ?){2}\d{1,4}"
-          required
-          autocomplete="cc-number"
-        />
+        type="text"
+        id="cardNumber"
+        name="cardNumber"
+        placeholder="1234 5678 9101 1020"
+        inputmode="numeric"
+        minlength="16"
+        maxlength="19"
+        pattern="^(?:\d{4} ?){3}\d{4}$"
+        required
+        autocomplete="cc-number"
+      />
       </div>
 
       <div class="card-holder-group">
