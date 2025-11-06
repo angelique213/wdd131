@@ -11,7 +11,6 @@
   <body>
     <h1 id="courseName"></h1>
     <h2 id="courseCode"></h2>
-
     <label for="sectionNumber">Section Number</label>
     <input id="sectionNumber" />
     <button id="enrollStudent">Enroll Student</button>
@@ -31,3 +30,52 @@
     </table>
   </body>
 </html>
+<script>
+  const aCourse = {
+    code: "CSE121b",
+    name: "Javascript Language",
+    sections: [
+      { sectionNum: 1, roomNum: "STC 353", enrolled: 26, days: "TTh", instructor: "Bro T" },
+      { sectionNum: 2, roomNum: "STC 347", enrolled: 25, days: "TTh", instructor: "Sis A" },
+    ],
+    changeEnrollment(sectionNum, add = true) {
+      const i = this.sections.findIndex(s => s.sectionNum == sectionNum);
+      if (i >= 0) {
+        this.sections[i].enrolled = Math.max(0, this.sections[i].enrolled + (add ? 1 : -1));
+        renderSections(this.sections);
+      }
+    },
+    enrollStudent(sectionNum) { this.changeEnrollment(sectionNum, true); },
+    dropStudent(sectionNum)   { this.changeEnrollment(sectionNum, false); },
+  };
+  
+  function setCourseInfo(course) {
+    document.querySelector("#courseName").textContent = course.name;
+    document.querySelector("#courseCode").textContent = course.code;
+  }
+  function sectionTemplate(s) {
+    return `<tr>
+      <td>${s.sectionNum}</td>
+      <td>${s.roomNum}</td>
+      <td>${s.enrolled}</td>
+      <td>${s.days}</td>
+      <td>${s.instructor}</td>
+    </tr>`;
+  }
+  function renderSections(sections) {
+    document.querySelector("#sections").innerHTML = sections.map(sectionTemplate).join("");
+  }
+  
+  document.querySelector("#enrollStudent").addEventListener("click", () => {
+    const sectionNum = document.querySelector("#sectionNumber").value;
+    aCourse.enrollStudent(sectionNum);
+  });
+  document.querySelector("#dropStudent").addEventListener("click", () => {
+    const sectionNum = document.querySelector("#sectionNumber").value;
+    aCourse.dropStudent(sectionNum);
+  });
+  
+  setCourseInfo(aCourse);
+  renderSections(aCourse.sections);
+  </script>
+  

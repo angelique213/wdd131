@@ -17,60 +17,52 @@ const aCourse = {
       instructor: "Sis A",
     },
   ],
-
-  changeEnrollment: function (sectionNum, add = true) {
+  enrollStudent: function (sectionNum) {
+    // find the right section...Array.findIndex will work here
     const sectionIndex = this.sections.findIndex(
       (section) => section.sectionNum == sectionNum
     );
     if (sectionIndex >= 0) {
-      if (add) {
-        this.sections[sectionIndex].enrolled++;
-      } else {
-        this.sections[sectionIndex].enrolled = Math.max(
-          0,
-          this.sections[sectionIndex].enrolled - 1
-        );
-      }
+      this.sections[sectionIndex].enrolled++;
       renderSections(this.sections);
     }
   },
-
-  enrollStudent: function (sectionNum) {
-    this.changeEnrollment(sectionNum, true);
-  },
   dropStudent: function (sectionNum) {
-    this.changeEnrollment(sectionNum, false);
+    // find the right section...Array.findIndex will work here
+    const sectionIndex = this.sections.findIndex(
+      (section) => section.sectionNum == sectionNum
+    );
+    if (sectionIndex >= 0) {
+      this.sections[sectionIndex].enrolled--;
+      renderSections(this.sections);
+    }
   },
 };
 
 function setCourseInfo(course) {
   const courseName = document.querySelector("#courseName");
-  const courseCode = document.querySelector("#courseCode");
+  const coursecode = document.querySelector("#courseCode");
   courseName.textContent = course.name;
-  courseCode.textContent = course.code;
+  coursecode.textContent = course.code;
 }
 
-function sectionTemplate(section) {
-  return `<tr>
+function renderSections(sections) {
+  const html = sections.map(
+    (section) => `<tr>
     <td>${section.sectionNum}</td>
     <td>${section.roomNum}</td>
     <td>${section.enrolled}</td>
     <td>${section.days}</td>
-    <td>${section.instructor}</td>
-  </tr>`;
-}
-
-function renderSections(sections) {
-  const html = sections.map(sectionTemplate);
+    <td>${section.instructor}</td></tr>`
+  );
   document.querySelector("#sections").innerHTML = html.join("");
 }
 
-document.querySelector("#enrollStudent").addEventListener("click", () => {
+document.querySelector("#enrollStudent").addEventListener("click", function () {
   const sectionNum = document.querySelector("#sectionNumber").value;
   aCourse.enrollStudent(sectionNum);
 });
-
-document.querySelector("#dropStudent").addEventListener("click", () => {
+document.querySelector("#dropStudent").addEventListener("click", function () {
   const sectionNum = document.querySelector("#sectionNumber").value;
   aCourse.dropStudent(sectionNum);
 });
