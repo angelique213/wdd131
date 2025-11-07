@@ -31,7 +31,7 @@ const character = {
         <p><strong>Health:</strong> <span id="health">${character.health}</span></p>
       </div>
       <div class="buttons">
-        <button id="attackBtn">Attacked</button>
+        <button id="attackBtn">Attack</button>
         <button id="levelBtn">Level Up</button>
       </div>
     `;
@@ -53,7 +53,6 @@ const character = {
   attackBtn.addEventListener("click", () => {
     character.attacked();
     healthEl.textContent = character.health;
-  
     if (character.health === 0) {
       attackBtn.disabled = true;
       attackBtn.textContent = "Defeated";
@@ -65,9 +64,10 @@ const character = {
     levelEl.textContent = character.level;
   });
   
-  submitForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    localStorage.removeItem("characterState");
-    location.reload();
+  submitForm.addEventListener("submit", () => {
+    localStorage.setItem("characterState", JSON.stringify({
+      level: character.level,
+      health: character.health
+    }));
   });
   
