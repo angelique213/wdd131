@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recipe Book • WDD131</title>
+  <meta name="description" content="Search simple, tasty recipes. Mobile-first, accessible, and fast.">
+  <meta name="author" content="YOUR NAME">
+  <link rel="icon" href="./images/recipe-book.png">
+
+  <!-- Social sharing -->
+  <meta property="og:title" content="Recipe Book • WDD131">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Search simple, tasty recipes. Mobile-first, accessible, and fast.">
+  <meta property="og:image" content="https://angelique213.github.io/wdd131/recipes/images/apple-crisp.jpg">
+  <meta property="og:url" content="https://angelique213.github.io/wdd131/recipes/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="./recipes.css">
+  <script type="module" src="./main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="./images/recipe-book.png" alt="Recipe book logo" width="64" height="64">
+      <h1>RecipeBook</h1>
+    </div>
+
+    <form id="searchForm" class="search" role="search" aria-label="Find a recipe">
+      <label class="vh" for="q">Find a recipe</label>
+      <input id="q" name="q" type="search" placeholder="Find a recipe" autocomplete="off">
+      <button type="submit" aria-label="Search">
+        <img src="./images/search.svg" alt="" width="22" height="22" aria-hidden="true">
+      </button>
+    </form>
+
+    <hr class="rule">
+  </header>
+
+  <main id="main">
+    <section id="results" class="recipes" aria-live="polite"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="social">
+      <a href="#" aria-label="Instagram"><img src="./images/instagram_icon.svg" alt="instagram icon"></a>
+      <a href="#" aria-label="YouTube"><img src="./images/youtube_icon.svg" alt="youtube icon"></a>
+      <a href="#" aria-label="Pinterest"><img src="./images/pinterest_icon.svg" alt="pinterest icon"></a>
+    </div>
+
+    <p class="tiny">
+      <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">Recipe icons created by Freepik - Flaticon</a>
+    </p>
+
+    <p class="copyright">©2023</p>
+  </footer>
+</body>
+</html>
+

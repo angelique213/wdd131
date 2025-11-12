@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+:root {
+  --primary-color: #1B98E0;
+  --secondary-color: #59c3c3;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --line: #b3b3b3;
+  --wrap: 1100px;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: "Amatic SC", cursive;
+}
+
+.vh {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+
+body {
+  font-family: var(--primary-font);
+  color: var(--text-dark);
+  line-height: 1.55;
+}
+
+
+.site-header {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.brand h1 {
+  font-family: var(--secondary-font);
+  font-size: clamp(32px, 6vw, 48px);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+
+.search {
+  max-width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.search input {
+  flex: 1;
+  padding: 11px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--text-dark);
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+}
+
+.search button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid var(--text-dark);
+  border-radius: 0 10px 10px 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.rule {
+  border: none;
+  border-top: 1.5px solid var(--line);
+  margin: 16px 0 4px;
+}
+
+
+#main {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 6px 16px 16px;
+}
+
+.recipes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.recipe-card {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recipe-card img {
+  border-radius: 0;
+}
+
+.recipe-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+h2 {
+  font-family: var(--secondary-font);
+  font-size: clamp(26px, 5vw, 36px);
+  margin: 0;
+  color: var(--primary-color);
+  letter-spacing: 0.5px;
+}
+
+.rating {
+  margin: -10px 0 8px 0;
+  line-height: 1;
+}
+
+.rating .icon-star,
+.rating .icon-star-empty {
+  font-size: 1.1rem;
+  margin-right: 2px;
+  line-height: 1;
+}
+
+.recipe-desc {
+  display: none;
+  color: #222;
+  margin-top: 6px;
+}
+
+
+.site-footer {
+  max-width: var(--wrap);
+  margin: 10px auto 24px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-top: none;
+}
+
+.site-footer .social {
+  display: flex;
+  gap: 12px;
+  order: 1;
+  margin: 0;
+}
+
+.site-footer .social img {
+  width: 48px;
+  height: 48px;
+}
+
+.site-footer .tiny {
+  order: 2;
+  margin: 0;
+  text-align: center;
+  font-size: 0.6em;
+  color: var(--primary-color);
+}
+
+.site-footer .tiny a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.copyright {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .site-header {
+    padding: 20px;
+  }
+
+  .brand {
+    margin-bottom: 16px;
+  }
+
+  #main {
+    padding: 6px 20px 20px;
+  }
+
+  .rule {
+    display: none;
+  }
+
+  .recipe-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 16px 18px;
+  }
+
+  .recipe-card img {
+    width: min(420px, 48%);
+    flex: 0 0 auto;
+  }
+
+  .recipe-content {
+    flex: 1;
+  }
+
+  .recipe-desc {
+    display: block;
+  }
+
+  .site-footer {
+    padding: 8px 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
+
+  .site-footer .tiny {
+    order: 1;
+    text-align: left;
+    margin-right: auto;
+    color: var(--text-dark);
+  }
+
+  .site-footer .social {
+    order: 2;
+    margin-left: auto;
+    gap: 10px;
+  }
+
+  .site-footer .social img {
+    width: 28px;
+    height: 28px;
+  }
+}

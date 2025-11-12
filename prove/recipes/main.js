@@ -1,0 +1,89 @@
+import recipes from "./recipes.mjs";
+
+const resultsEl = document.querySelector("#results");
+const form = document.querySelector("#searchForm");
+const qInput = document.querySelector("#q");
+
+function buildStars(rating = 0) {
+  const full = Math.max(0, Math.min(5, Math.floor(Number(rating))));
+  const empty = 5 - full;
+  const wrap = document.createElement("span");
+  wrap.className = "rating";
+  wrap.setAttribute("role", "img");
+  wrap.setAttribute("aria-label", `Rating: ${rating} out of 5 stars`);
+
+  const stars = "⭐".repeat(full) + "☆".repeat(empty);
+  for (const ch of stars) {
+    const s = document.createElement("span");
+    s.textContent = ch;
+    s.setAttribute("aria-hidden", "true");
+    s.className = ch === "⭐" ? "icon-star" : "icon-star-empty";
+    wrap.appendChild(s);
+  }
+  return wrap;
+}
+
+function cardTemplate(r) {
+  const article = document.createElement("article");
+  article.className = "recipe-card";
+
+  const img = document.createElement("img");
+  img.src = r.image;
+  img.alt = `${r.name} photo`;
+
+  const content = document.createElement("div");
+  content.className = "recipe-content";
+
+  const tags = document.createElement("div");
+  tags.className = "tags";
+  (r.tags || []).forEach(t => {
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = t;
+    tags.appendChild(chip);
+  });
+
+  const h2 = document.createElement("h2");
+  h2.textContent = r.name;
+
+  const stars = buildStars(r.rating);
+
+  const desc = document.createElement("p");
+  desc.className = "recipe-desc";
+  desc.textContent = r.description || "";
+
+  content.append(tags, h2, stars, desc);
+  article.append(img, content);
+  return article;
+}
+
+function render(list) {
+  resultsEl.innerHTML = "";
+  if (!list.length) {
+    const p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "No recipes found. Try a different search.";
+    resultsEl.appendChild(p);
+    return;
+  }
+  list.forEach(r => resultsEl.appendChild(cardTemplate(r)));
+}
+
+const appleCrisp = recipes.find(r => (r.name || "").toLowerCase() === "apple crisp");
+render([appleCrisp || recipes[0]]);
+
+function filterRecipes(q) {
+  const n = q.trim().toLowerCase();
+  if (!n) return [appleCrisp || recipes[0]];
+  return recipes.filter(r =>
+    (r.name && r.name.toLowerCase().includes(n)) ||
+    (r.tags && r.tags.some(t => t.toLowerCase().includes(n)))
+  );
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  render(filterRecipes(qInput.value));
+});
+
+qInput.addEventListener("input", () => render(filterRecipes(qInput.value)));
