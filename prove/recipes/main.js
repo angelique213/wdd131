@@ -7,6 +7,7 @@ const qInput = document.querySelector("#q");
 function buildStars(rating = 0) {
   const full = Math.max(0, Math.min(5, Math.floor(Number(rating))));
   const empty = 5 - full;
+
   const wrap = document.createElement("span");
   wrap.className = "rating";
   wrap.setAttribute("role", "img");
@@ -30,6 +31,9 @@ function cardTemplate(r) {
   const img = document.createElement("img");
   img.src = r.image;
   img.alt = `${r.name} photo`;
+  img.loading = "lazy";
+  img.width = 800;
+  img.height = 450;
 
   const content = document.createElement("div");
   content.className = "recipe-content";
@@ -61,7 +65,6 @@ function render(list) {
   resultsEl.innerHTML = "";
   if (!list.length) {
     const p = document.createElement("p");
-    p.className = "empty";
     p.textContent = "No recipes found. Try a different search.";
     resultsEl.appendChild(p);
     return;
@@ -69,7 +72,10 @@ function render(list) {
   list.forEach(r => resultsEl.appendChild(cardTemplate(r)));
 }
 
-const appleCrisp = recipes.find(r => (r.name || "").toLowerCase() === "apple crisp");
+const appleCrisp = recipes.find(
+  r => (r.name || "").toLowerCase() === "apple crisp"
+);
+
 render([appleCrisp || recipes[0]]);
 
 function filterRecipes(q) {
@@ -86,4 +92,6 @@ form.addEventListener("submit", (e) => {
   render(filterRecipes(qInput.value));
 });
 
-qInput.addEventListener("input", () => render(filterRecipes(qInput.value)));
+qInput.addEventListener("input", () => {
+  render(filterRecipes(qInput.value));
+});

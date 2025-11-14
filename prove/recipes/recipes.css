@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -24,11 +24,11 @@ img {
   --line: #b3b3b3;
   --wrap: 1100px;
   --primary-font: Arial, Helvetica, sans-serif;
-  --secondary-font: "Amatic SC", cursive;
+  --secondary-font: "Kalam", cursive;
 }
 
 .vh {
-  position: absolute !important;
+  position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -36,13 +36,11 @@ img {
   white-space: nowrap;
 }
 
-
 body {
   font-family: var(--primary-font);
   color: var(--text-dark);
   line-height: 1.55;
 }
-
 
 .site-header {
   max-width: var(--wrap);
@@ -64,7 +62,6 @@ body {
   margin: 0;
   letter-spacing: 1px;
 }
-
 
 .search {
   max-width: 100%;
@@ -98,7 +95,6 @@ body {
   border-top: 1.5px solid var(--line);
   margin: 16px 0 4px;
 }
-
 
 #main {
   max-width: var(--wrap);
@@ -171,7 +167,6 @@ h2 {
   color: #222;
   margin-top: 6px;
 }
-
 
 .site-footer {
   max-width: var(--wrap);
