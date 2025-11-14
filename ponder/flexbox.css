@@ -1,83 +1,84 @@
-
 * {
-    box-sizing: border-box;
-    }
-    
-    body {
-    font-size: 20px;
-    max-width: 1280px;
-    margin: auto;
-    padding: 1em;
-    }
-    
-    img {
-    max-width: 100%;
-    }
-    
-    .main-nav {				
-        display: flex;					
-        justify-content: flex-end;
-        gap: 20px;
-        list-style: none;
-    }
-    
-    hr{
-    margin-top: 50px;
-    }
-    .media-card {
-        display: flex;
-        align-items:flex-start;
-        gap: 20px;
+  box-sizing: border-box;
+}
 
-      }
-     .media-card-image {
-        max-width: 30%;
-     }
+body {
+  font-size: 20px;
+  max-width: 1280px;
+  margin: auto;
+  padding: 1em;
+}
+
+img {
+  max-width: 100%;
+}
 
 
-    .gallery {
-        display: flex;
-        flex-wrap: wrap; 
-        justify-content: space-between;
-        gap: 20px; 
-    }
-    
+.main-nav {				
+  display: flex;					
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+}
 
-    .gallery .media-card {
-        flex: 1 1 calc(50% - 20px); 
-    }
+hr {
+  margin-top: 50px;
+}
 
-@media (max-width: 640px) {
+.media-card {
+  display: flex;
+  flex-direction: column; 
+  align-items: stretch;
+  gap: 12px;
+}
 
-    .main-nav {
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+.media-card-image {
+  max-width: 100%;
+}
+
+.media-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 16px; 
+}
+
+.gallery .media-card {
+  flex: 1 1 100%;
+}
+
+
+@media (min-width: 641px) {
   
-
-    .media-card {
-      flex-direction: column; 
-      align-items: stretch;
-      gap: 12px;
-    }
-  
-
-    .media-card-image {
-      max-width: 100%;
-    }
-    .media-card-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-  
- 
-    .gallery .media-card {
-      flex: 1 1 100%;
-    }
-  
-
-    .gallery { gap: 16px; }
+  .main-nav {
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 20px;
   }
-  
+
+  .media-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .media-card-image {
+    max-width: 30%;
+  }
+
+
+  .gallery .media-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  .gallery {
+    gap: 20px;
+  }
+}
