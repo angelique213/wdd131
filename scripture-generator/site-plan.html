@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Souls | Site Plan</title>
+  <link rel="stylesheet" href="styles/site-plan.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Souls – Scripture Generator</h1>
+    <h2>Site Plan</h2>
+    <p>WDD 131 | Angelique Legaspi</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Site Name</h2>
+      <p><strong>Souls</strong></p>
+      <p>A simple, peaceful scripture generator that helps users find uplifting verses for their soul.</p>
+    </section>
+
+    <section>
+      <h2>Purpose</h2>
+      <p>
+        The purpose of <strong>Souls</strong> is to provide uplifting scripture passages that offer peace, guidance,
+        and spiritual strength. The site will let users generate random verses or select a book and chapter to quickly
+        find meaningful scripture to study or share.
+      </p>
+    </section>
+
+    <section>
+      <h2>Audience</h2>
+      <p>
+        The intended audience includes individuals seeking daily spiritual inspiration, students who want a simple
+        scripture reference tool, and anyone looking for peace and light in God’s word. The design will be calm,
+        minimal, and easy to use on both mobile and desktop devices.
+      </p>
+    </section>
+
+    <section>
+      <h2>Dynamic Elements (JavaScript)</h2>
+      <p>
+        JavaScript will power the scripture generator by handling user actions and updating the page dynamically.
+        Users will be able to:
+      </p>
+      <ul>
+        <li>Click a button to receive a random scripture verse.</li>
+        <li>Select a book and chapter to generate a verse from that location.</li>
+        <li>See the DOM update as verses, references, and messages change based on their choices.</li>
+      </ul>
+      <p>
+        The project will use <strong>objects</strong> to represent verses and scripture data, <strong>arrays</strong> to store
+        collections of verses, and <strong>array methods</strong> like <code>map</code>, <code>filter</code>, and <code>forEach</code> to process and
+        display that data. ES <strong>modules</strong> will be used to organize the JavaScript into separate files
+        (for example, one module for data and another for UI logic). Conditional statements will be used to control
+        random selection, handle missing data, validate user choices, and show different messages depending on what
+        the user does.
+      </p>
+    </section>
+
+    <section>
+      <h2>Logo</h2>
+      <p>
+        The logo represents a figure walking toward light and mountains, symbolizing the journey of the soul toward
+        truth and peace.
+      </p>
+      <div class="logo-wrapper">
+        <img src="soulslogo.png" alt="Souls scripture logo">
+        <p class="logo-caption">Souls Logo – figure walking toward light and mountains.</p>
+      </div>
+      <p><em>(Update the image path and filename to match where you save your logo.)</em></p>
+    </section>
+
+    <section>
+      <h2>Color Palette</h2>
+      <p>
+        The color palette is inspired by deep, peaceful blues and soft light tones to create a calm and spiritual atmosphere.
+      </p>
+
+      <div class="palette">
+        <div class="swatch swatch-1">
+          <span>#0B1A33</span>
+          <small>Deep Midnight Blue (background)</small>
+        </div>
+        <div class="swatch swatch-2">
+          <span>#12294A</span>
+          <small>Royal Navy (header)</small>
+        </div>
+        <div class="swatch swatch-3">
+          <span>#274769</span>
+          <small>Mountain Blue (accents)</small>
+        </div>
+        <div class="swatch swatch-4">
+          <span>#F2F8FF</span>
+          <small>Glow White (cards)</small>
+        </div>
+        <div class="swatch swatch-5">
+          <span>#DCE4EC</span>
+          <small>Soft Silver (borders)</small>
+        </div>
+        <div class="swatch swatch-6">
+          <span>#7EA6D8</span>
+          <small>Sky Light Blue (buttons)</small>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Typography</h2>
+      <p>
+        <strong>Heading Font:</strong> Cinzel – used for the logo, main title, and section headings to give a classic,
+        sacred feeling.
+      </p>
+      <p>
+        <strong>Body Font:</strong> Inter – used for all body text to keep the content clean, modern, and easy to read.
+      </p>
+      <div class="typography-demo">
+        <h3>Heading Example</h3>
+        <p class="heading-sample">SOULS – Words that lift the soul.</p>
+
+        <h3>Body Text Example</h3>
+        <p class="body-sample">
+          This site helps users find uplifting scriptures through a simple verse generator and a chapter-based scripture finder.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Content</h2>
+
+      <h3>Home Page – Souls</h3>
+      <p>
+        The home page will introduce the Souls scripture generator in a simple and calming layout. A hero section will
+        display the logo, the title “Souls,” and a short tagline such as “Words that lift the soul.” Below the hero
+        section, a main card will invite the user to generate a scripture. When the user clicks the button, a random
+        verse and its reference will appear in the card. The focus of the home page is to give users immediate access
+        to inspiration with minimal distractions.
+      </p>
+
+      <h3>Generator Page – Scripture Finder</h3>
+      <p>
+        The generator page will function more like a tool. It will allow users to select a book and chapter from
+        dropdown menus and then click a button to receive a verse from that chapter. A result card will display the
+        verse, the reference, and optional actions such as copying the verse. This page will help users who want
+        scripture from a specific part of the Bible or another selected volume of scripture.
+      </p>
+
+      <h3>Additional Text / Labels</h3>
+      <ul>
+        <li>“Generate Scripture” – main button on the home page.</li>
+        <li>“Click the button to receive a scripture.” – default message in the verse card.</li>
+        <li>“Choose a book and chapter to receive a verse.” – instructions on the generator page.</li>
+        <li>“For God so loved the world…” – example verse for layout and testing.</li>
+        <li>Footer text: “© 2025 Souls — Guided by Scripture”</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Wireframes</h2>
+
+      <h3>Home Page Wireframe</h3>
+      <p>
+        The home page wireframe features a header with the logo and navigation, a large hero section with the Souls
+        title and a “Generate Scripture” button, and a centered card below where the verse appears. The footer runs
+        across the bottom with a simple copyright line.
+      </p>
+      <div class="wireframe-wrapper">
+        <img src="images/wireframe-home-souls.jpg" alt="Home page wireframe for Souls scripture generator">
+      </div>
+
+      <h3>Generator Page Wireframe</h3>
+      <p>
+        The generator page wireframe shows the same header and footer for consistency. The main content includes a
+        short description, two dropdowns (book and chapter), a “Get Verse” button, and a result card that displays the
+        verse text and reference. The layout is focused on clarity and ease of use.
+      </p>
+      <div class="wireframe-wrapper">
+        <img src="images/wireframe-generator-souls.jpg" alt="Generator page wireframe for Souls scripture finder">
+      </div>
+
+      <p><em>(Replace the image filenames and paths with your actual wireframe image files.)</em></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Souls – Scripture Generator Site Plan</p>
+  </footer>
+</body>
+</html>
