@@ -4,7 +4,19 @@ const resultsEl = document.querySelector("#results");
 const form = document.querySelector("#searchForm");
 const qInput = document.querySelector("#q");
 
-function buildStars(rating = 0) {
+// 1) random number function
+function getRandomNumber(max) {
+  return Math.floor(Math.random() * max);
+}
+
+// 2) random recipe function
+function getRandomRecipe(list) {
+  const index = getRandomNumber(list.length);
+  return list[index];
+}
+
+// 3) rating template (your star builder)
+function ratingTemplate(rating = 0) {
   const full = Math.max(0, Math.min(5, Math.floor(Number(rating))));
   const empty = 5 - full;
 
@@ -24,7 +36,23 @@ function buildStars(rating = 0) {
   return wrap;
 }
 
-function cardTemplate(r) {
+// 4) tags template
+function tagsTemplate(tagsList = []) {
+  const tags = document.createElement("div");
+  tags.className = "tags";
+
+  tagsList.forEach((t) => {
+    const chip = document.createElement("span");
+    chip.className = "chip";
+    chip.textContent = t;
+    tags.appendChild(chip);
+  });
+
+  return tags;
+}
+
+// 5) recipe template (card)
+function recipeTemplate(r) {
   const article = document.createElement("article");
   article.className = "recipe-card";
 
@@ -38,19 +66,11 @@ function cardTemplate(r) {
   const content = document.createElement("div");
   content.className = "recipe-content";
 
-  const tags = document.createElement("div");
-  tags.className = "tags";
-  (r.tags || []).forEach(t => {
-    const chip = document.createElement("span");
-    chip.className = "chip";
-    chip.textContent = t;
-    tags.appendChild(chip);
-  });
-
+  const tags = tagsTemplate(r.tags || []);
   const h2 = document.createElement("h2");
   h2.textContent = r.name;
 
-  const stars = buildStars(r.rating);
+  const stars = ratingTemplate(r.rating);
 
   const desc = document.createElement("p");
   desc.className = "recipe-desc";
@@ -61,37 +81,43 @@ function cardTemplate(r) {
   return article;
 }
 
+// 6) render function
 function render(list) {
   resultsEl.innerHTML = "";
-  if (!list.length) {
+  if (!list || !list.length) {
     const p = document.createElement("p");
     p.textContent = "No recipes found. Try a different search.";
     resultsEl.appendChild(p);
     return;
   }
-  list.forEach(r => resultsEl.appendChild(cardTemplate(r)));
+  list.forEach((r) => resultsEl.appendChild(recipeTemplate(r)));
 }
 
-const appleCrisp = recipes.find(
-  r => (r.name || "").toLowerCase() === "apple crisp"
-);
-
-render([appleCrisp || recipes[0]]);
-
+// 7) filter (you already had this — we can keep it)
 function filterRecipes(q) {
   const n = q.trim().toLowerCase();
-  if (!n) return [appleCrisp || recipes[0]];
-  return recipes.filter(r =>
+  if (!n) {
+    return [getRandomRecipe(recipes)];
+  }
+  return recipes.filter((r) =>
     (r.name && r.name.toLowerCase().includes(n)) ||
-    (r.tags && r.tags.some(t => t.toLowerCase().includes(n)))
+    (r.tags && r.tags.some((t) => t.toLowerCase().includes(n)))
   );
 }
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  render(filterRecipes(qInput.value));
-});
+// 8) init: run on page load
+function init() {
+  const randomRecipe = getRandomRecipe(recipes);
+  render([randomRecipe]);
 
-qInput.addEventListener("input", () => {
-  render(filterRecipes(qInput.value));
-});
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    render(filterRecipes(qInput.value));
+  });
+
+  qInput.addEventListener("input", () => {
+    render(filterRecipes(qInput.value));
+  });
+}
+
+init();
