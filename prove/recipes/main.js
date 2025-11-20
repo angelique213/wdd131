@@ -4,18 +4,17 @@ const resultsEl = document.querySelector("#results");
 const form = document.querySelector("#searchForm");
 const qInput = document.querySelector("#q");
 
-// 1) random number function
+
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
 }
 
-// 2) random recipe function
+
 function getRandomRecipe(list) {
   const index = getRandomNumber(list.length);
   return list[index];
 }
 
-// 3) rating template (your star builder)
 function ratingTemplate(rating = 0) {
   const full = Math.max(0, Math.min(5, Math.floor(Number(rating))));
   const empty = 5 - full;
@@ -36,7 +35,7 @@ function ratingTemplate(rating = 0) {
   return wrap;
 }
 
-// 4) tags template
+
 function tagsTemplate(tagsList = []) {
   const tags = document.createElement("div");
   tags.className = "tags";
@@ -51,7 +50,7 @@ function tagsTemplate(tagsList = []) {
   return tags;
 }
 
-// 5) recipe template (card)
+
 function recipeTemplate(r) {
   const article = document.createElement("article");
   article.className = "recipe-card";
@@ -81,7 +80,7 @@ function recipeTemplate(r) {
   return article;
 }
 
-// 6) render function
+
 function render(list) {
   resultsEl.innerHTML = "";
   if (!list || !list.length) {
@@ -93,7 +92,7 @@ function render(list) {
   list.forEach((r) => resultsEl.appendChild(recipeTemplate(r)));
 }
 
-// 7) filter (you already had this — we can keep it)
+
 function filterRecipes(q) {
   const n = q.trim().toLowerCase();
   if (!n) {
@@ -105,7 +104,7 @@ function filterRecipes(q) {
   );
 }
 
-// 8) init: run on page load
+
 function init() {
   const randomRecipe = getRandomRecipe(recipes);
   render([randomRecipe]);
